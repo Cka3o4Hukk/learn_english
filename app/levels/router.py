@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from typing import List
 
-from pydantic import BaseModel
 from app.levels.repo import LevelRepo
 from app.levels.schemas import SLevel
 
