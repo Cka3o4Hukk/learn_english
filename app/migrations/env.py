@@ -11,29 +11,20 @@ sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
 from app.config import settings
 from app.database import Base
-from app.tables.models import Levels
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
+from app.levels.models import Levels
+from app.categories.models import Category
+from app.themes.models import Themes#, Theme
+from app.words.models import Word
+
 config = context.config
 
-config.set_main_option("sqlalchemy.url", f"{settings.DATABASE_URL}?async_fallback=True")
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
+config.set_main_option("sqlalchemy.url", f"{settings.DATEBASE_URL}?async_fallback=True")
+
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
-
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
-
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
