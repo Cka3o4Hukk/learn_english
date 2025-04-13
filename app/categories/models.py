@@ -6,4 +6,4 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-#     icon = Column(Images)
+    icon = Column(Integer, default=None)

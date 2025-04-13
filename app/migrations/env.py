@@ -1,21 +1,19 @@
 from logging.config import fileConfig
-import sys
 from os.path import abspath, dirname
+import sys
 
+from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from alembic import context
-
-sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
-
+from app.categories.models import Category
 from app.config import settings
 from app.database import Base
-
 from app.levels.models import Levels
-from app.categories.models import Category
 from app.themes.models import Themes#, Theme
 from app.words.models import Word
+
+sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
 config = context.config
 
