@@ -1,10 +1,8 @@
-from fastapi import APIRouter, UploadFile
 import shutil
 
-router = APIRouter(
-    prefix="/icons",
-    tags=["Картинки категорий"]
-)
+from fastapi import APIRouter, UploadFile
+
+router = APIRouter(prefix="/icons", tags=["Картинки категорий"])
 
 @router.post("/categories")
 async def add_category_icon(name: int, file: UploadFile):
